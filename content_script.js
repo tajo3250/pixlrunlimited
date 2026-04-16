@@ -13,17 +13,14 @@ script.textContent = `(function () {
 		} catch (_) {}
 		return raw;
 	}
-
-	localStorage.setItem = function (key, value) {
-		if (key === 'user-settings') value = normalizeDdid(value);
-		return _setItem(key, value);
-	};
-
-	const existing = localStorage.getItem('user-settings');
-	if (existing) {
-		const fixed = normalizeDdid(existing);
-		if (fixed !== existing) _setItem('user-settings', fixed);
-	}
+        
+    setInterval(() => {
+       	const existing = localStorage.getItem('user-settings');
+        if (existing) {
+            const fixed = normalizeDdid(existing);
+            if (fixed !== existing) _setItem('user-settings', fixed);
+        }
+    }, 1000);
 })();`;
 (document.head || document.documentElement).appendChild(script);
 script.remove();
