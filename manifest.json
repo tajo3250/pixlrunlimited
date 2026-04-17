@@ -1,15 +1,20 @@
 {
 	"manifest_version": 3,
-	"name": "Pixlr DDID Fixer",
+	"name": "Pixlr Ultimate",
 	"version": "1.0",
-	"description": "Forces the second segment of ddid in pixlr.com user-settings to always be 1",
+	"description": "Client-side browser extension to remove download limits",
 	"host_permissions": ["*://*.pixlr.com/*"],
 	"content_scripts": [
 		{
 			"matches": ["*://*.pixlr.com/*"],
-			"js": ["content_script.js"],
+			"js": ["src/main.js"],
 			"run_at": "document_start",
-			"all_frames": true
+			"world": "MAIN"
 		}
-	]
+	],
+	"icons": {
+		"16": "src/icon.png",
+		"48": "src/icon.png",
+		"128": "src/icon.png"
+	}
 }
